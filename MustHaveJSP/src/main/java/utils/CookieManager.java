@@ -28,7 +28,7 @@ public class CookieManager {
 		return cookieValue;
 	}
 
-	public static void deleteCooke(HttpServletResponse response, String cName) {
+	public static void deleteCookie(HttpServletResponse response, String cName) {
 		makeCookie(response, cName, "", 0);
 	}
 
