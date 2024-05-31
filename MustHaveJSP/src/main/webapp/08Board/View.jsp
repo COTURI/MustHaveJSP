@@ -17,7 +17,13 @@ dao.close();
 <title>회원제 게시판</title>
 <script>
 	function deletePost() {
-
+		var confirmed = confirm("정말로 삭제하겠습니까?");
+		if (confirmed) {
+			var form = document.writeFrm;
+			form.method = "post";
+			form.action = "DeleteProcess.jsp";
+			form.submit();
+		}
 	}
 </script>
 
@@ -25,7 +31,7 @@ dao.close();
 <body>
 	<jsp:include page="../Common/Link.jsp" />
 	<h2>회원제 게시판 - 상세 보기(View)</h2>
-	<form name="writefrm">
+	<form name="writeFrm">
 		<input type="hidden" name="num" value="<%=num%>" />
 		<table border="1" width="90%">
 			<tr>
@@ -51,7 +57,7 @@ dao.close();
 					%>
 					<button type="button"
 						onclick="location.href='Edit.jsp?num=<%=dto.getNum()%>';">수정하기</button>
-					<button type="button" onclick="deletdPost();">삭제하기</button> <%
+					<button type="button" onclick="deletePost();">삭제하기</button> <%
  }
  %>
 					<button type="button" onclick="location.href='List.jsp';">
